@@ -7,13 +7,12 @@ import { data } from "../data/data";
 
 export function lowMoonsPlanets(data) {
   // Your code goes here...
-  return data.planets
-    .filter(function(planet) {
-      return !planet.moonsCount || planet.moonsCount < 10;
-    })
-    .map(function(planet) {
-      return planet.name;
-    });
+  return data.planets.reduce((acc, planet) => {
+    if (!planet.moonsCount || planet.moonsCount < 10) {
+      acc.push(planet.name);
+    }
+    return acc;
+  }, []);
 }
 
 // === TEST YOURSELF ===

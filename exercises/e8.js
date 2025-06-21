@@ -6,15 +6,9 @@ import { data } from "../data/data";
 
 export function findPlanetNameByMoon(data, moonName) {
   // Your code goes here...
-  const planet = data.planets.find(function(planet) {
-    return planet.moons && planet.moons.find(function(moon) {
-      return moon === moonName;
-    });
-  });
+  const planet = data.planets.find(planet => planet.moons && planet.moons.find(moon => moon === moonName));
   return planet.name;
 }
-
-
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-8"
 // If the test has all tests passed, switch to the next exercise file
